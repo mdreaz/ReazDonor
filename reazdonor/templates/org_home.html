@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block main %}		
+	<section class="py-5 my-5">
+		<div class="container">
+			<h1 class="mb-5">{{ org.organization_name }}</h1>
+
+			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
+				<div class="p-4">
+					<div class="img-circle text-center mb-3">
+						<img src="{{ url_for('static', filename = 'images/profiles/' + org.logo) }}" width="200px" height="200px" alt="Image" class="shadow">
+					</div>
+
+					<div>
+						<h5 class="text-center mb-3">{{ org.email }}</h5>
+
+						<p class="lead text-center">{{ org.address }}</p>
+						{% if org.address2 == "" %}
+							<p class="lead text-center">{{ org.address2 }}</p>
+						{% endif %}
+						<p class="lead text-center">{{ org.city }}, {{ org.state }}</p>
+						<p class="lead text-center">({{ org.phone[:3] }}) {{ org.phone[3:6] }}-{{ org.phone[6:] }}</p>
+					</div>
+				</div>
+					
+				<div class="p-4 p-md-5" style="width: 100%;">
+					<div class="container">
+						<div class="d-flex justify-content-end">
+							<div>
+								<a class="btn btn-primary d-lg-inline-block" id="donate" href="{{ url_for('main.donate', org_id = org.id) }}">Donate</a>
+							</div>
+						</div>
+						
+						<div>
+							<h4>Impact</h4>
+							<p class="lead">{{ org.impact }}</p>
+							<h4>Mission</h4>
+							<p class="lead">{{ org.mission }}</p>
+						</div>
+					</div>
+				</div>
+			</div>		
+		</div>
+	</section>
+{% endblock main %}

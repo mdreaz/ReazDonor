@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+	<section>
+		<div class="container mt-5">
+			<h1 class="display-1">
+				<small>
+					<u>
+						<b>Search For Organizations</b>
+					</u>
+				</small>
+			</h1>
+		</div>
+	</section>
+	
+    <body>
+		<h1 class=".red-text"> </element>
+		<br>
+		<div class="search">
+        <form class="example" method="post" action="" style="margin:auto;max-width:600px">
+            <input type="text" placeholder="  Search orgs" name="orgns">
+            <button type="submit"><i class="fa fa-search"></i>
+            </button>
+        </form>
+		</div>
+        <p></p>
+        <center>
+		<br>
+        {% for item in data %}
+            <tr>
+				<div class="card" style="width:90%">
+					<a href="{{ url_for('main.organization', org_id = item.id) }}" style="color:black;text-decoration: none;">
+						<div class="containerteam">
+							<p class="title team-bio">{{item.organization_name}}</p>
+							<p class="lead team-bio">{{item.city}}, {{item.state}}</p>
+							<p class="lead team-bio">Phone: {{item.phone}}</p>
+						</div>
+					</a>
+				</div>
+				
+				<br>               
+            </tr>
+        {% endfor %}
+		</center>
+
+    </body>
+	
+{% endblock main %}

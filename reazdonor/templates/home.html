@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block main %}
+	<section class="container sect">
+		<div>
+			<h1 class="display-1">Welcome!</h1>
+			<h1 class="display-4">ReazDonor is a place for donors and organizations alike.</h1>
+		</div>
+
+		<br><br>
+
+		<div class="emergencybox">
+			<p class="lead text-center">These organizations need your attention!</p>
+			<p class="lead text-center"> They need immediate assistance.</p>
+			<select name="Cars" size="5">
+				{% for item in data %}
+					<option value="orgname"> {{item.organization_name}} </option>
+				{% endfor %}
+			</select>
+		</div>
+	</section>
+	
+	<section class="container sect">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h2>Donors</h2>
+					<hr>
+					<p class="lead">
+						ReazDonor allows you to browse through organizations, so you know exactly what cause your donation is going to.
+					</p>
+				</div>
+				<div class="col">
+					<h2>Organizations</h2>
+					<hr>
+					<p class="lead">
+						ReazDonor allows you to broadcast your organization, so donors can find you and learn more about your cause.
+					</p>
+				</div>
+			</div>
+			<br><br><br>
+			<div class="row">
+				<h6 class="display-6">Join us today!</h6>
+				<div class="container d-flex justify-content-center">
+					<a class="btn btn-primary d-lg-inline-block" id="login" href="{{ url_for('users.signup') }}">Sign Up</a>
+				</div>	
+			</div>
+		</div>
+	</section>
+{% endblock main %}

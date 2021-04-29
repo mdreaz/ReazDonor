@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block main %}
+	<section>
+		<br><br><br>
+		<div class="container mt-5">
+			<h1 class="display-1">
+				<small>
+					<u>
+						<b>Team</b>
+					</u>
+				</small>
+			</h1>
+		</div>
+	</section>
+	
+	<br>
+
+	<!-- Credit https://www.w3schools.com/howto/howto_css_team.asp -->
+	<section>
+		<div class="rowteam">
+			<div class="columnteam">
+				<div class="card">
+					<img src="{{ url_for('static', filename='images/justinpic.png') }}" alt="Justin" style="width:100%">
+					<div class="containerteam">
+						<h2 class="team-bio">Justin Neal</h2>
+						<p class="title team-bio">ScrumMaster</p>
+						<p class="lead team-bio">Senior Computer Science Student</p>
+						<p class="lead team-bio">Georgia State University</p>
+						<p class="lead team-bio">jneal27@student.gsu.edu</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="columnteam">
+                                <div class="card">
+                                        <img src="{{ url_for('static', filename='images/reazpic.jpg') }}" alt="Reazul" style="width:100%">
+                                        <div class="containerteam">
+                                                <h2 class="team-bio">Md Reazul Islam</h2>
+                                                <p class="title team-bio">Software Developer</p>
+                                                <p class="lead team-bio">Junior Computer Science Student</p>
+                                                <p class="lead team-bio">Georgia State University</p>
+                                                <p class="lead team-bio">mislam20@student.gsu.edu</p>
+                                        </div>
+                                </div>
+                        </div>
+
+			<div class="columnteam">
+				<div class="card">
+					<img src="{{ url_for('static', filename='images/kaylapic.jpg') }}" alt="Kayla" style="width:100%">
+					<div class="containerteam">
+						<h2 class="team-bio">Kayla Walker</h2>
+						<p class="title team-bio">Software Engineer</p>
+						<p class="lead team-bio">Senior Computer Science Student</p>
+						<p class="lead team-bio">Georgia State University</p>
+						<p class="lead team-bio">kwalker86@student.gsu.edu</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="columnteam">
+			<div class="card">
+				<img src="{{ url_for('static', filename='images/dawitpic.jpg') }}" alt="Dawit" style="width:100%">
+				<div class="containerteam">
+					<h2 class="team-bio">Dawit Dagnachew</h2>
+					<p class="title team-bio">Software Developer</p>
+					<p class="lead team-bio">Senior Computer Science Student</p>
+					<p class="lead team-bio">Georgia State University</p>
+					<p class="lead team-bio">ddagnachew1@student.gsu.edu</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="rowteam">
+			<div class="columnteam">
+				<div class="card">
+					<img src="/w3images/team2.jpg" alt="Asha" style="width:100%">
+					<div class="containerteam">
+						<h2 class="team-bio">Asha Vassell</h2>
+						<p class="title team-bio">Database Designer</p>
+						<p class="lead team-bio">Senior Computer Science Student</p>
+						<p class="lead team-bio">Georgia State University</p>
+						<p class="lead team-bio">avassell2@student.gsu.edu</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock main %}

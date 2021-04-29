@@ -1,0 +1,6 @@
+{
+	"SECRET_KEY" : "",
+	"SQLALCHEMY_DATABASE_URI" : "sqlite:///reaz.db",
+	"MAIL_USERNAME" : "",
+	"MAIL_PASSWORD" : ""
+}

@@ -1,0 +1,374 @@
+{% extends "layout.html" %}
+
+{% block main %}
+	<section class="py-5 my-5">
+		<div class="container">
+			<h1 class="mb-5">Account Settings</h1>
+
+			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
+				<div class="profile-tab-nav border-right">
+					<div class="p-4">
+						<div class="img-circle text-center mb-3">
+							<img src="{{ image }}" alt="Image" class="shadow rounded">
+						</div>
+
+						<h4 class="text-center">{{ current_user.organization_name }}</h4>
+					</div>
+					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+						<a class="nav-link active" id="account-tab" data-toggle="pill" href="#account" role="tab" aria-controls="account" aria-selected="true">
+							<i class="fa fa-home text-center mr-1"></i> 
+							Account
+						</a>
+
+						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
+							<i class="fa fa-key text-center mr-1"></i> 
+							Password
+						</a>
+
+						<a class="nav-link" id="donations-tab" data-toggle="pill" href="#donations" role="tab" aria-controls="donations" aria-selected="false">
+							<i class="fa fa-credit-card text-center mr-1"></i>
+							Donation History
+						</a>
+					</div>
+				</div>
+
+				<div class="tab-content p-4 p-md-5" id="v-pills-tabContent">
+					<div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+						<h3 class="mb-4">Account Settings</h3>
+
+						<form method="POST" action="" enctype="multipart/form-data">
+							{{ account.hidden_tag() }}
+
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										{{ account.logo.label(class = "form-label") }}
+
+										{{ account.logo(class = "form-control") }}
+										{% if account.logo.errors %}
+											{% for error in account.logo.errors %}
+												<span class="text-danger">{{ error }}</span>
+												<br>
+											{% endfor %}
+										{% endif %}
+									</div>
+								</div>
+								
+								<div class="col-md-6 mt-2">
+									<div class="form-group">
+										{{ account.first_name.label(class = "form-label") }}
+				
+										{% if account.first_name.errors %}
+											{{ account.first_name(class = "form-control is-invalid") }}
+											<div class="invalid-feedback">
+												{% for error in account.first_name.errors %}
+													<span>{{ error }}</span>
+												{% endfor %}
+											</div>
+										{% else %}
+											{{ account.first_name(class = "form-control") }}
+										{% endif %}
+									</div>
+								</div>
+
+								<div class="col-md-6 mt-2">
+									<div class="form-group">
+										{{ account.last_name.label(class = "form-label") }}
+				
+										{% if account.last_name.errors %}
+											{{ account.last_name(class = "form-control is-invalid") }}
+											<div class="invalid-feedback">
+												{% for error in account.last_name.errors %}
+													<span>{{ error }}</span>
+												{% endfor %}
+											</div>
+										{% else %}
+											{{ account.last_name(class = "form-control") }}
+										{% endif %}
+									</div>
+								</div>
+
+								<div class="col-md-12 mt-2">
+									<div class="form-group">
+										{{ account.organization_name.label(class = "form-label") }}
+				
+										{% if account.organization_name.errors %}
+											{{ account.organization_name(class = "form-control is-invalid") }}
+											<div class="invalid-feedback">
+												{% for error in account.organization_name.errors %}
+													<span>{{ error }}</span>
+												{% endfor %}
+											</div>
+										{% else %}
+											{{ account.organization_name(class = "form-control") }}
+										{% endif %}
+									</div>
+								</div>
+
+								<div class="col-md-6 mt-2">
+									<div class="form-group">
+										{{ account.phone.label(class = "form-label") }}
+				
+										{% if account.phone.errors %}
+											{{ account.phone(class = "form-control is-invalid") }}
+											<div class="invalid-feedback">
+												{% for error in account.phone.errors %}
+													<span>{{ error }}</span>
+												{% endfor %}
+											</div>
+										{% else %}
+											{{ account.phone(class = "form-control") }}
+										{% endif %}
+									</div>
+								</div>
+
+								<div class="col-md-6 mt-2">
+									<div class="form-group">
+										{{ account.email.label(class = "form-label") }}
+				
+										{% if account.email.errors %}
+											{{ account.email(class = "form-control is-invalid") }}
+											<div class="invalid-feedback">
+												{% for error in account.email.errors %}
+													<span>{{ error }}</span>
+												{% endfor %}
+											</div>
+										{% else %}
+											{{ account.email(class = "form-control") }}
+										{% endif %}
+									</div>
+								</div>
+
+								<div class="col-md-12 mt-2">
+									<div class="form-group">
+										{{ account.address.label(class = "form-label") }}
+				
+										{% if account.address.errors %}
+											{{ account.address(class = "form-control is-invalid") }}
+											<div class="invalid-feedback">
+												{% for error in account.address.errors %}
+													<span>{{ error }}</span>
+												{% endfor %}
+											</div>
+										{% else %}
+											{{ account.address(class = "form-control") }}
+										{% endif %}
+									</div>
+								</div>
+
+								<div class="col-md-12 mt-2">
+									<div class="form-group">
+										{{ account.address2.label(class = "form-label") }}
+				
+										{% if account.address2.errors %}
+											{{ account.address2(class = "form-control is-invalid") }}
+											<div class="invalid-feedback">
+												{% for error in account.address2.errors %}
+													<span>{{ error }}</span>
+												{% endfor %}
+											</div>
+										{% else %}
+											{{ account.address2(class = "form-control") }}
+										{% endif %}
+									</div>
+								</div>
+
+								<div class="col-md-6 mt-2">
+									<div class="form-group">
+										{{ account.city.label(class = "form-label") }}
+				
+										{% if account.city.errors %}
+											{{ account.city(class = "form-control is-invalid") }}
+											<div class="invalid-feedback">
+												{% for error in account.city.errors %}
+													<span>{{ error }}</span>
+												{% endfor %}
+											</div>
+										{% else %}
+											{{ account.city(class = "form-control") }}
+										{% endif %}
+									</div>
+								</div>
+
+								<div class="col-md-6 mt-2">
+									<div class="form-group">
+										{{ account.state.label(class = "form-label") }}
+					
+										{% if account.state.errors %}
+											{{ account.state(class = "form-select form-control is-invalid") }}
+											<div class="invalid-feedback">
+												{% for error in account.state.errors %}
+													<span>{{ error }}</span>
+												{% endfor %}
+											</div>
+										{% else %}
+											{{ account.state(class = "form-select form-control") }}
+										{% endif %}
+									</div>
+								</div>
+
+								<div class="col-md-12 mt-2">
+									<div class="form-group">
+										{{ account.mission.label(class = "form-label") }}
+				
+										{% if account.mission.errors %}
+											{{ account.mission(class = "form-control is-invalid") }}
+											<div class="invalid-feedback">
+												{% for error in account.mission.errors %}
+													<span>{{ error }}</span>
+												{% endfor %}
+											</div>
+										{% else %}
+											{{ account.mission(class = "form-control") }}
+										{% endif %}
+									</div>
+								</div>
+
+								<div class="col-md-12 mt-2">
+									<div class="form-group">
+										{{ account.impact.label(class = "form-label") }}
+				
+										{% if account.impact.errors %}
+											{{ account.impact(class = "form-control is-invalid") }}
+											<div class="invalid-feedback">
+												{% for error in account.impact.errors %}
+													<span>{{ error }}</span>
+												{% endfor %}
+											</div>
+										{% else %}
+											{{ account.impact(class = "form-control") }}
+										{% endif %}
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-12 mt-2">
+								<div class="form-check">
+									{% if account.assistance.errors %}
+										{{ account.assistance(class = "form-check-input is-invalid") }}
+										<div class="invalid-feedback">
+											{% for error in account.assistance.errors %}
+												<span>{{ error }}</span>
+											{% endfor %}
+										</div>
+									{% else %}
+										{{ account.assistance(class = "form-check-input") }}
+									{% endif %}
+			
+									{{ account.assistance.label(class = "form-check-label") }}
+								</div>
+							</div>
+
+							<div class="mt-2">
+								{{ account.submit(class = "btn btn-primary") }}
+								<a class="btn btn-light" href="{{ url_for('main.home') }}" role="button">Cancel</a>
+							</div>
+						</div>
+					</form>
+
+					<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+						<h3 class="mb-4">Password Settings</h3>
+
+						<form method="POST" action="">
+							{{ password.hidden_tag() }}
+
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										{{ password.old_password.label(class = "form-label") }}
+				
+										{% if password.old_password.errors %}
+											{{ password.old_password(class = "form-control is-invalid") }}
+											<div class="invalid-feedback">
+												{% for error in password.old_password.errors %}
+													<span>{{ error }}</span>
+												{% endfor %}
+											</div>
+										{% else %}
+											{{ password.old_password(class = "form-control") }}
+										{% endif %}
+									</div>
+								</div>
+							</div>
+
+							<div class="row mt-2">
+								<div class="col-md-6">
+									<div class="form-group">
+										{{ password.password.label(class = "form-label") }}
+
+										{% if password.password.errors %}
+											{{ password.password(class = "form-control is-invalid") }}
+											<div class="invalid-feedback">
+												{% for error in password.password.errors %}
+													<span>{{ error }}</span>
+												{% endfor %}
+											</div>
+										{% else %}
+											{{ password.password(class = "form-control") }}
+										{% endif %}
+									</div>
+								</div>
+
+								<div class="col-md-6">
+									<div class="form-group">
+										{{ password.confirm_password.label(class = "form-label") }}
+				
+										{% if password.confirm_password.errors %}
+											{{ password.confirm_password(class = "form-control is-invalid") }}
+											<div class="invalid-feedback">
+												{% for error in password.confirm_password.errors %}
+													<span>{{ error }}</span>
+												{% endfor %}
+											</div>
+										{% else %}
+											{{ password.confirm_password(class = "form-control") }}
+										{% endif %}
+									</div>
+								</div>
+							</div>
+
+							<div class="mt-2">
+								{{ password.submit(class = "btn btn-primary") }}
+								<a class="btn btn-light" href="{{ url_for('main.home') }}" role="button">Cancel</a>
+							</div>
+						</form>
+					</div>
+
+					<div class="tab-pane fade" id="donations" role="tabpanel" aria-labelledby="donations-tab">
+						<h3 class="mb-4">Transaction History</h3>
+
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Donation ID</th>
+									<th>Donor</th>
+									<th>Amount</th>
+									<th>Date</th>
+								</tr>
+							</thead>
+
+							<tbody>
+									{% for t in current_user.transaction %}
+										<tr>
+											<td>
+												<h6 class="mb-0">{{ t.id }}</h6>
+											</td>
+											<td>
+												<h6 class="mb-0">{{t.donor_txn.first_name}} {{ t.donor_txn.last_name }}</h6>
+											</td>
+											<td>
+												<h6 class="mb-0">{{ t.amount }}</h6>
+											</td>
+											<td>
+												<h6 class="mb-0">{{ t.date.strftime("%m-%d-%Y") }}</h6>
+											</td>
+										</tr>
+									{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock main %}

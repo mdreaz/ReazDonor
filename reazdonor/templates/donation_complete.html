@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block main %}
+	<section class="container mt-5">
+		<div class="container">
+			<h1 class="display-1">Thank you for donating with us!</h1>
+		</div>
+
+		<br>
+
+		<div class="container">
+			<div class="row">
+				<h1 class="display-1">👍</h1>
+			</div>
+
+			<br>
+
+			<div class="row">
+				<p class="lead" style="text-align: center;">
+					Here at ReazDonor we realize the importance of supporting Non-Profits and we know you do too.
+				</p>
+
+				<p class="lead" style="text-align: center;">
+					We just want to thank you for your time and contribution. to making the world a better place.
+				</p>
+
+				<p class="lead" style="text-align: center;">
+					People like you are making the world a better place.
+				</p>
+			</div>
+
+			<br>
+
+			<div class="container d-flex justify-content-center">
+				<a class="btn btn-primary d-lg-inline-block" href="{{ url_for('main.search') }}" role="button">Browse Organizations</a>
+			</div>
+		</div>
+	</section>
+{% endblock main %}

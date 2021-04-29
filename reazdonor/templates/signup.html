@@ -1,0 +1,214 @@
+{% extends "layout.html" %}
+
+{% block main %}
+	<section>
+		<div class="container mt-5">
+			<h1>Sign up</h1>
+
+			<form method="POST" action="" class="row g-3">
+				{{ form.hidden_tag() }}
+
+				<div class="col-12">
+					{{ form.member_type.label(class = "form-label") }}
+
+					{% if form.member_type.errors %}
+						{{ form.member_type(class = "form-select is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.member_type.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.member_type(class = "form-select") }}
+					{% endif %}
+				</div>
+
+				<div class="col-12">
+					{{ form.organization_name.label(class = "form-label") }}
+
+					{% if form.organization_name.errors %}
+						{{ form.organization_name(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.organization_name.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.organization_name(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				<div class="col-md-6">
+					{{ form.first_name.label(class = "form-label") }}
+
+					{% if form.first_name.errors %}
+						{{ form.first_name(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.first_name.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.first_name(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				<div class="col-md-6">
+					{{ form.last_name.label(class = "form-label") }}
+					
+					{% if form.last_name.errors %}
+						{{ form.last_name(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.last_name.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.last_name(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				<div class="col-12">
+					{{ form.email.label(class = "form-label") }}
+					
+					{% if form.email.errors %}
+						{{ form.email(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.email.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.email(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				<div class="col-md-6">
+					{{ form.password.label(class = "form-label") }}
+					
+					{% if form.password.errors %}
+						{{ form.password(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.password.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.password(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				<div class="col-md-6">
+					{{ form.confirm_password.label(class = "form-label") }}
+					
+					{% if form.confirm_password.errors %}
+						{{ form.confirm_password(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.confirm_password.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.confirm_password(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				<div class="col-12">
+					{{ form.address.label(class = "form-label") }}
+					
+					{% if form.address.errors %}
+						{{ form.address(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.address.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.address(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				<div class="col-12">
+					{{ form.address2.label(class = "form-label") }}
+					
+					{% if form.address2.errors %}
+						{{ form.address2(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.address2.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.address2(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				<div class="col-md-6">
+					{{ form.city.label(class = "form-label") }}
+					
+					{% if form.city.errors %}
+						{{ form.city(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.city.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.city(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				<div class="col-md-4">
+					{{ form.state.label(class = "form-label") }}
+					
+					{% if form.state.errors %}
+						{{ form.state(class = "form-select is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.state.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.state(class = "form-select") }}
+					{% endif %}
+				</div>
+
+				<div class="col-md-2">
+					{{ form.zipcode.label(class = "form-label") }}
+					
+					{% if form.zipcode.errors %}
+						{{ form.zipcode(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.zipcode.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.zipcode(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				<div class="col-12">
+					<div class="form-check">
+						{% if form.terms.errors %}
+							{{ form.terms(class = "form-check-input is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.terms.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							{{ form.terms(class = "form-check-input") }}
+						{% endif %}
+
+						{{ form.terms.label(class = "form-check-label") }}
+					</div>
+				</div>
+
+				<div class="col-12">
+					{{ form.submit(class = "btn btn-primary") }}
+				</div>
+			</form>
+		</div>
+	</section>
+{% endblock main %}

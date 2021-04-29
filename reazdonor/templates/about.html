@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block main %}
+	<section>
+		<div class="container mt-5">
+			<h1 class="display-1">
+				<small>
+					<u>
+						<b>About Us</b>
+					</u>
+				</small>
+			</h1>
+			<p class="abttxt lead">
+				ReazDonor is a platform for individuals and organizations alike to send and receive donations. It is a place where donors will find organizations to donate and organizations will
+				be able to display their profile to accept donations. We simply want to ensure a safe and secure method of receiving funds for inviduals and organizations alike.
+			</p>
+		</div>
+	</section>
+
+	<section class="sect-mv">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h1 class="display-4">Mission</h1>
+					<p class="abttxt lead">
+						Our mission is to make it easy for dononators to find organizations to donate and make the complete donation process easy through our web application.
+					</p>
+				</div>
+
+				<div class="col">
+					<h1 class="display-4">Values</h1>
+					<p class="abttxt lead">
+						<span>&#9679;</span> Simplicity
+					</p>
+					<p class="abttxt lead">
+						<span>&#9679;</span> Collaboration
+					</p>
+					<p class="abttxt lead">
+						<span>&#9679;</span> Innovation
+					</p>
+				</div>
+			</div>
+
+			<br><br><br>
+			<div class="row">
+				<h6 class="display-6">Join us today!</h6>
+				<div class="container d-flex justify-content-center">
+					<a class="btn btn-primary d-lg-inline-block" id="login" href="{{ url_for('users.signup') }}">Sign Up</a>
+				</div>	
+			</div>
+		</div>
+	</section>
+{% endblock main %}

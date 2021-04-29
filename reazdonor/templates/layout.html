@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{{ url_for('static', filename = 'stylesheets/ourstyle.css') }}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+		{% if title %}
+			<title>{{ title }} - ReazDonor</title>
+		{% else %}
+			<title>ReazDonor</title>
+		{% endif %}
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: tan;">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="{{ url_for('main.home') }}">
+				<img class="logo" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
+			</a>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<ul class="navbar-nav flex-row flex-wrap bd-navbar-nav pt-2 py-md-0 me-5">
+						<li class="nav-item col-6 col-md-auto">
+							<a class="nav-link" href="{{ url_for('main.home') }}">Home</a>
+						</li>
+						<li class="nav-item col-6 col-md-auto">
+							<a class="nav-link" href="{{ url_for('main.about') }}">About Us</a>
+						</li>
+						<li class="nav-item col-6 col-md-auto">
+							<a class="nav-link" href="{{ url_for('main.how') }}">How It Works</a>
+						</li>
+						<li class="nav-item col-6 col-md-auto">
+							<a class="nav-link" href="{{ url_for('main.contact') }}">Contact Us</a>
+						</li>
+						<li class="nav-item col-6 col-md-auto">
+							<a class="nav-link" href="{{ url_for('main.team') }}">Team</a>
+						</li>
+					</ul>
+
+					<form class="d-flex ms-5">
+						<a type="button" href="{{ url_for('main.search') }}" class="btn btn-outline-success">Search For Organizations</a>
+					</form>
+
+				</div>
+			</div>
+
+			{% if current_user.is_authenticated %}
+				<a class="nav-link mr-0" id="account" href="{{ url_for('users.load_account') }}">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+						<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+						<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+					</svg>
+				</a>
+			{% endif %}
+
+			{% if current_user.is_authenticated %}
+				<a class="btn btn-danger d-lg-inline-block ms-2 me-3" id="logout" href="{{ url_for('users.logout') }}">Logout</a>
+			{% else %}
+				<a class="btn btn-primary d-lg-inline-block ms-5 me-3" id="login" href="{{ url_for('users.login') }}">Login</a>
+			{% endif %}
+		</div>
+	</nav>
+
+	<main>
+		<br><br><br>
+		{% with messages = get_flashed_messages(with_categories = true) %}
+			{% if messages %}
+				{% for category, message in messages %}
+					<div class="alert alert-{{ category }} mt-4">
+						{{ message }}
+					</div>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+
+		{% block main %}{% endblock %}
+	</main>
+		
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-xs-12">
+					<img class="d-flex justify-content-center" src="{{ url_for('static', filename='images/logo.png') }}" alt="logo">
+				</div>
+			
+				<div class="col-md-4 col-sm-6 col-xs-12">
+					<ul class="menu">
+						<span>Menu</span>    
+						<li>
+							<a href="/home">Home</a>
+						</li>
+						<li>
+							<a href="/about">About</a>
+						</li>		
+						<li>
+							<a href="#">Blog</a>
+						</li>
+						<li>
+							<a href="#">Gallery </a>
+						</li>
+					</ul>
+				</div>
+	
+				<div class="col-md-4 col-sm-6 col-xs-12">
+					<ul class="address">
+						<span>Contact</span>       
+						<li>
+							<i class="fa fa-phone" aria-hidden="true"></i> <a href="#">Phone</a>
+						</li>
+						<li>
+							<i class="fa fa-map-marker" aria-hidden="true"></i> <a href="#">Address</a>
+						</li> 
+						<li>
+							<i class="fa fa-envelope" aria-hidden="true"></i> <a href="#">Email</a>
+						</li> 
+					</ul>
+				</div>
+			</div> 
+		</div>
+	</footer>
+</body>
+</html>

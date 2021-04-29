@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block main %}
+	<section>
+		<div class="container mt-5">
+			<h1>Sign In</h1>
+			<form method="POST" action="" class="form-control">
+				{{ form.hidden_tag() }}
+
+				<div class="col-12">
+					{{ form.email.label(class = "form-label") }}
+				
+					{% if form.email.errors %}
+						{{ form.email(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.email.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.email(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				<div class="col-12">
+					{{ form.password.label(class = "form-label mt-2") }}
+				
+					{% if form.password.errors %}
+						{{ form.password(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.password.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.password(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				<div class="col-12 mt-2">
+					<div class="form-check">
+						{% if form.remember_me.errors %}
+							{{ form.remember_me(class = "form-check-input is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.remember_me.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							{{ form.remember_me(class = "form-check-input") }}
+						{% endif %}
+
+						{{ form.remember_me.label(class = "form-check-label") }}
+					</div>
+				</div>
+
+				<div class="col-md-6 mt-2">
+					{{ form.submit(class = "btn btn-primary") }}
+				</div>
+
+				<br>
+				<div class="col-12 mt-2">
+					<small class="text-muted">Forgot password? <a href="{{ url_for('users.request_reset') }}">Click here</a></small>
+				</div>
+
+				<div class="col-12 mt-2">
+					<small class="text-muted">Don't have an account? <a href="{{ url_for('users.signup') }}">Click here</a> to get started</small>
+				</div>
+			</form>
+		</div>
+	</section>
+{% endblock main %}

@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+
+{% block main %}
+	<section>
+		<div class="container mt-5">
+			<h1>Donate</h1>
+			<form method="POST" action="" class="row form-control">
+				{{ form.hidden_tag() }}
+
+				{{ form.dollar_amount.label(class = "form-label") }}
+				<div class="input-group col-12">
+					<span class="input-group-text">$</span>
+
+					{% if form.dollar_amount.errors %}
+						{{ form.dollar_amount(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.dollar_amount.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.dollar_amount(class = "form-control") }}
+					{% endif %}
+
+					<span class="input-group-text">.</span>
+
+					{% if form.cent_amount.errors %}
+						{{ form.cent_amount(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.cent_amount.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.cent_amount(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				<div class="mt-2">
+					{{ form.card_type.label(class = "form-label") }}
+				
+					{% if form.card_type.errors %}
+						{{ form.card_type(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.card_type.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.card_type(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				<div class="mt-2">
+					{{ form.cardholder.label(class = "form-label") }}
+					
+						{% if form.cardholder.errors %}
+							{{ form.cardholder(class = "form-control is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.cardholder.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							{{ form.cardholder(class = "form-control") }}
+						{% endif %}
+				</div>
+
+				<div class="mt-2">
+					{{ form.card_number.label(class = "form-label") }}
+				
+					{% if form.card_number.errors %}
+						{{ form.card_number(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.card_type.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.card_number(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				{{ form.expiration_month.label(class = "form-label mt-2") }}
+				<div class="input-group col-12">
+					{% if form.expiration_month.errors %}
+						{{ form.expiration_month(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.expiration_month.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.expiration_month(class = "form-control") }}
+					{% endif %}
+
+					<span class="input-group-text">/</span>
+
+					{% if form.expiration_year.errors %}
+						{{ form.expiration_year(class = "form-control is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.expiration_year.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.expiration_year(class = "form-control") }}
+					{% endif %}
+				</div>
+
+				<div class="row pe-0 ps-0 ms-0">
+					<div class="col-md-6 mt-2">
+						{{ form.cvv.label(class = "form-label") }}
+	
+						{% if form.cvv.errors %}
+							{{ form.cvv(class = "form-control is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.cvv.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							{{ form.cvv(class = "form-control") }}
+						{% endif %}
+					</div>
+	
+					<div class="col-md-6 mt-2">
+						{{ form.billing_zip.label(class = "form-label") }}
+						
+						{% if form.billing_zip.errors %}
+							{{ form.billing_zip(class = "form-control is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.billing_zip.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							{{ form.billing_zip(class = "form-control") }}
+						{% endif %}
+					</div>
+				</div>
+
+				<div class="col-md-6 mt-2">
+					{{ form.submit(class = "btn btn-primary") }}
+				</div>
+			</form>
+		</div>
+	</section>
+{% endblock main %}
