@@ -41,8 +41,8 @@ Due to the high cost of running web servers, this project is not currently being
 
 
 ## Contributors
-* [Dawit Dagnachew](http://github.com/DawitDa)
-* [Md Reazul Islam](http://github.com/mdreaz)
+* [Md Reazul Islam](http://github.com/mdreazul)
 * [Justin Neal](http://github.com/JustinJNEAL)
+* [Dawit Dagnachew](http://github.com/DawitDa)
 * [Asha Vassell]()
 * [Kayla Walker](http://github.com/kayverly)
